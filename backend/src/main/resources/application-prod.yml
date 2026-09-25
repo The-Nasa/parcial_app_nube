@@ -1,11 +1,15 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${SUPABASE_HOST:aws-0-sa-east-1.pooler.supabase.com}:${SUPABASE_PORT:6543}/${SUPABASE_DB:postgres}?sslmode=require
+    url: jdbc:postgresql://${SUPABASE_HOST:aws-0-sa-east-1.pooler.supabase.com}:${SUPABASE_PORT:6543}/${SUPABASE_DB:postgres}?sslmode=require&prepareThreshold=0
     driver-class-name: org.postgresql.Driver
     username: ${SUPABASE_USER:postgres.hydxnouyyioyxvemboqi}
     password: ${SUPABASE_PASSWORD:61544196Mts}
+    hikari:
+      initialization-fail-timeout: 0
+      maximum-pool-size: 5
+      minimum-idle: 1
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true

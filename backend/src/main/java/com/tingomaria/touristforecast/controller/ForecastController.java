@@ -12,6 +12,7 @@ import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/api/v1/predictions")
+@CrossOrigin(origins = "*")
 @Tag(name = "Predictions", description = "Endpoints para estimacion de afluencia turistica y clima")
 public class ForecastController {
 
