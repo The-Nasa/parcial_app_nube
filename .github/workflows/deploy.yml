@@ -29,17 +29,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ubuntu/parcial_1
-            if [ ! -f .env ]; then
-              cat << 'EOF' > .env
-SUPABASE_HOST=aws-0-sa-east-1.pooler.supabase.com
-SUPABASE_PORT=6543
-SUPABASE_DB=postgres
-SUPABASE_USER=postgres.hydxnouyyioyxvemboqi
-SUPABASE_PASSWORD=61544196Mts
-WEATHER_API_KEY=021c05a00ab24cfb88b204516262509
-WEATHER_API_URL=https://api.weatherapi.com/v1/forecast.json
-SPRING_PROFILES_ACTIVE=prod
-EOF
-            fi
             docker compose down
             docker compose up --build -d
