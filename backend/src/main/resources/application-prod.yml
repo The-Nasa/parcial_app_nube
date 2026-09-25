@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${SUPABASE_HOST:db.hydxnouyyioyxvemboqi.supabase.co}:${SUPABASE_PORT:5432}/${SUPABASE_DB:postgres}?sslmode=require&prepareThreshold=0
+    url: jdbc:postgresql://${SUPABASE_HOST:db}:${SUPABASE_PORT:5432}/${SUPABASE_DB:postgres}?sslmode=disable
     driver-class-name: org.postgresql.Driver
     username: ${SUPABASE_USER:postgres}
-    password: ${SUPABASE_PASSWORD:61544196Mts}
+    password: ${SUPABASE_PASSWORD:postgrespassword}
     hikari:
       initialization-fail-timeout: 0
       maximum-pool-size: 5
@@ -11,5 +11,5 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     show-sql: true

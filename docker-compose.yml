@@ -1,4 +1,17 @@
 services:
+  db:
+    image: postgres:15-alpine
+    container_name: derrepente-db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    restart: always
+
   backend:
     build:
       context: ./backend
@@ -6,12 +19,16 @@ services:
     container_name: derrepente-backend
     ports:
       - "8080:8080"
-    env_file:
-      - .env
     environment:
       - SPRING_PROFILES_ACTIVE=prod
+      - SUPABASE_HOST=db
+      - SUPABASE_PORT=5432
+      - SUPABASE_DB=postgres
+      - SUPABASE_USER=postgres
+      - SUPABASE_PASSWORD=postgrespassword
+    depends_on:
+      - db
     restart: always
-
 
   frontend:
     build:
