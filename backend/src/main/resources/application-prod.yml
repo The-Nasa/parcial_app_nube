@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${SUPABASE_HOST:aws-0-sa-east-1.pooler.supabase.com}:${SUPABASE_PORT:6543}/${SUPABASE_DB:postgres}?sslmode=require
+    driver-class-name: org.postgresql.Driver
+    username: ${SUPABASE_USER:postgres.hydxnouyyioyxvemboqi}
+    password: ${SUPABASE_PASSWORD:61544196Mts}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true

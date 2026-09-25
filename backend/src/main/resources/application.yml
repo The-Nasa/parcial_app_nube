@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: tourist-forecast-backend
+  profiles:
+    active: dev
+
+weather:
+  api:
+    key: ${WEATHER_API_KEY:021c05a00ab24cfb88b204516262509}
+    url: ${WEATHER_API_URL:https://api.weatherapi.com/v1/forecast.json}
+    location: "Tingo Maria"

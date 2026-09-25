@@ -1,0 +1,124 @@
+:root {
+  /* HSL Color Tokens - Selva & Catarata Derrepente, Tingo Maria */
+  --bg-dark-primary: hsl(222, 47%, 9%);       /* #090F1E */
+  --bg-dark-secondary: hsl(223, 39%, 14%);     /* #141C31 */
+  --bg-card-glass: rgba(20, 28, 49, 0.7);
+
+  /* Acentos */
+  --emerald-jungle: hsl(150, 75%, 42%);        /* #10B981 */
+  --cyan-waterfall: hsl(190, 95%, 45%);        /* #06B6D4 */
+  --amber-sun: hsl(42, 96%, 53%);
+
+  /* Alertas */
+  --alert-danger: hsl(0, 84%, 60%);
+  --alert-warning: hsl(38, 92%, 50%);
+
+  /* Textos */
+  --text-main: hsl(0, 0%, 98%);
+  --text-muted: hsl(215, 20%, 75%);
+
+  --font-family: 'Outfit', sans-serif;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: radial-gradient(circle at 50% -20%, hsl(200, 60%, 15%), var(--bg-dark-primary));
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-dark-secondary);
+  border-radius: 4px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: var(--bg-card-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: rgba(6, 182, 212, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Grid Layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.badge-low {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--emerald-jungle);
+  border: 1px solid var(--emerald-jungle);
+}
+
+.badge-moderate {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--cyan-waterfall);
+  border: 1px solid var(--cyan-waterfall);
+}
+
+.badge-high {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--amber-sun);
+  border: 1px solid var(--amber-sun);
+}
+
+.badge-very-high {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--alert-danger);
+  border: 1px solid var(--alert-danger);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}

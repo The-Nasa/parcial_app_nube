@@ -1,0 +1,21 @@
+# Archivos de Variables de Entorno y Secretos
+.env
+.env.local
+*.env
+
+# Archivos de Compilación Java Maven / Spring Boot
+backend/target/
+*.jar
+*.war
+
+# Archivos de Node.js y Frontend React
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Archivos de IDEs y Sistema Operativo
+.idea/
+.vscode/
+*.swp
+*.DS_Store
+Thumbs.db
